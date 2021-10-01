@@ -1,6 +1,14 @@
 const { response, request } = require('express');
 const axios = require('axios');
 
+/**
+ * El método devuelve un objeto donde uno de las entradas es la lista de jugadores
+ * y la otra entrada es opcionalmente un mensaje
+ * @param req request con un parametro llamado input
+ * @param resp
+ * @param next
+ * @returns {Promise<Response<any, Record<string, any>, number>>}
+ */
 const getPairsOfPlayers = async (req = request, resp = response, next) => {
   //Implementar logica aquí
   try{
