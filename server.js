@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('./src/router');
 const path = require('path');
+const {promises: fs} = require("fs");
 const port = 3000;
 
 const app = express();
@@ -12,3 +13,5 @@ app.use('/api', router);
 app.listen(port, () => {
   console.log('Server on http://localhost:3000');
 });
+
+
