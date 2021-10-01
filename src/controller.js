@@ -15,14 +15,6 @@ const getPairsOfPlayers = async (req = request, resp = response, next) => {
       let newKey = "h"+ply.h_in;
       let toAdd = ply.first_name;
 
-      if(newKey in seen){
-        seen[newKey].push(toAdd);
-      }
-      else{
-        seen[newKey] = [];
-        seen[newKey].push(toAdd);
-      }
-
       let imp = sum - parseInt(ply.h_in);
       let check = "h"+imp;
 
@@ -30,6 +22,14 @@ const getPairsOfPlayers = async (req = request, resp = response, next) => {
         for(const player of seen[check]){
           answer.players.push({pName1:toAdd,pName2:player});
         }
+      }
+
+      if(newKey in seen){
+        seen[newKey].push(toAdd);
+      }
+      else{
+        seen[newKey] = [];
+        seen[newKey].push(toAdd);
       }
     }
 
