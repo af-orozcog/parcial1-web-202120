@@ -22,7 +22,6 @@ const getPairsOfPlayers = async (req = request, resp = response, next) => {
     for(const ply of data){
       let newKey = "h"+ply.h_in;
       let toAdd = ply.first_name + " "+ply.last_name;
-      console.log(toAdd);
 
       let imp = sum - parseInt(ply.h_in);
       let check = "h"+imp;
