@@ -7,13 +7,11 @@ const getPairsOfPlayers = async (req = request, resp = response, next) => {
     let sum = parseInt(req.query.input);
     let data = await axios.get('https://gist.githubusercontent.com/jhonatan89/bc554ec3ded15407609714e8b7b8f1c8/raw/5ab1e3e5b45e99aabcbbdd30f55d2ae5eafb9cbe/nba-players');
     data = data.data.values;
-    console.log(data);
 
     let answer = {players:[]};
     let seen = {};
 
-    for(const ply in data){
-      console.log(ply);
+    for(const ply of data){
       let newKey = "h"+ply.h_in;
       let toAdd = ply.first_name;
 
@@ -29,7 +27,7 @@ const getPairsOfPlayers = async (req = request, resp = response, next) => {
       let check = "h"+imp;
 
       if(check in seen){
-        for(const player in seen[check]){
+        for(const player of seen[check]){
           answer.players.push({pName1:toAdd,pName2:player});
         }
       }

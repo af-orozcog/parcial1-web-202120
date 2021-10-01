@@ -23,11 +23,15 @@ function printValues(data){
     message.innerHTML = data.message;
     return;
   }
-  for(const value in data){
+  console.log("what is the data here?",data);
+
+  for(let i = 0; i < data.players.length;++i){
+    const val = data.players[i];
     const row = document.createElement('tr');
     const toAdd = `
-      <td class="col1">${value.pName1}</td>
-      <td class="col2">${value.pName2}</td>
+      <td class="col1">${1}</td>
+      <td class="col2">${val.pName1}</td>
+      <td class="col3">${val.pName2}</td>
     `;
     row.innerHTML = toAdd;
     tbody.appendChild(row);
